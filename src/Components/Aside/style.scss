@@ -1,0 +1,15 @@
+#aside {
+  background-color: #000;
+  height: calc(100vh - 80px);
+  a {
+    border-bottom: 1px solid #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+    &.active {
+      background-color: rgb(31, 141, 192);
+    }
+  }
+}
