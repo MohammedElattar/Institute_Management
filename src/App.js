@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  console.log("Your Working Directory is ",window.location.pathname);
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target[0].value
@@ -9,8 +10,13 @@ function App() {
     const object = {age, name};
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '../app/controllers/user.php')
-    console.log(object)
+    
+    xhr.open('POST', 'http://mohamedattar/institute_management/app/controllers/user.php?method=add');
+    xhr.onload = ()=>{
+      if(xhr.readyState === 4 && xhr.status === 200){
+        console.log(xhr.responseText);
+      }else console.log("Not exists")
+    }
     xhr.send(JSON.stringify(object));
   }
   return (
@@ -20,7 +26,6 @@ function App() {
       <button>Submit</button>
     </form>
   );
-}
 }
 
 export default App;
