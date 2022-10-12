@@ -10,22 +10,6 @@ class Controller
      * @author  Mohamed Attar
      */
 
-    public function view($path, $data = [])
-    {
-        /**
-         * View The UI Content
-         * 
-         * returns a UI Content
-         * 
-         * @param string $path The path of the file
-         * 
-         * @param Array $data  data you want to pass to show for example Title Of The Page
-         */
-        if (file_exists("../app/views/$path.php")) {
-            include "../app/views/$path.php";
-        } else
-            echo "Your View Not Exists";
-    }
     public function load_model($model_name)
     {
         /**
