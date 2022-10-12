@@ -2,24 +2,25 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target[0].value
+    const age = e.target[1].value
+    const object = {age, name};
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../app/controllers/user.php')
+    console.log(object)
+    xhr.send(JSON.stringify(object));
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input type='text' placholder='name' name='name'/>
+      <input type='number' placholder='age' name='age'/>
+      <button>Submit</button>
+    </form>
   );
+}
 }
 
 export default App;
