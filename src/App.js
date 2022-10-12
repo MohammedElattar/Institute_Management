@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+const url = "http://mohamedattar/institute_management/";
+
 function App() {
   console.log("Your Working Directory is ",window.location.pathname);
   const handleSubmit = (e) => {
@@ -11,7 +13,7 @@ function App() {
 
     const xhr = new XMLHttpRequest();
     
-    xhr.open('POST', 'http://mohamedattar/institute_management/app/controllers/user.php?method=add');
+    xhr.open('POST', `${url}/app/controllers/user.php?method=add`);
     xhr.onload = ()=>{
       if(xhr.readyState === 4 && xhr.status === 200){
         console.log(xhr.responseText);
