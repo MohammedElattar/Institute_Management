@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+const url = "http://mohamedattar/institute_management/"
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
