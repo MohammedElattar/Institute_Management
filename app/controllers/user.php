@@ -2,13 +2,23 @@
 header("Content-Type: application/json; charset=utf8");
 header("Access-Control-Allow-Origin: *");
 // header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
-// header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
-$method = $_GET['method'];
-print_r($method);
-function add($param = '')
+class user_Controller
 {
-    $_POST = json_decode(file_get_contents('php://input'), true);
-    echo "This is User Add Section , Your Posted Data are \n\n";
-    print_r($_POST);
+    public function login($POST)
+    {
+    }
+
+    public function signup($POST)
+    {
+    }
 }
-add();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_POST = json_decode(file_get_contents('php://input'));
+    print_r($_POST);
+    $user = new user_Controller;
+    $method = @$_GET['method'] or null;
+    if ($method == 'login') {
+        // $user->login($_POST)
+        echo "Hi Login";
+    }
+} else header("location:/");
