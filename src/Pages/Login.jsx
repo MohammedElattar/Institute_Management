@@ -15,11 +15,17 @@ const Login = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+    const role = [...e.target.querySelectorAll('[type="radio"]')].find(
+      (e) => e.checked
+    )?.value;
+
+    console.log(email, password, role);
 
     if (email && password) {
       setUser({
-        email: email,
-        password: password,
+        role,
+        email,
+        password,
         id: "KGjafkguAFKJgafs14",
       });
       navigate("/", { replace: true });
@@ -33,6 +39,38 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="البريد الالكتروني" ref={emailRef} />
           <input type="password" placeholder="كلمة المرور" ref={passwordRef} />
+          <ul className="radio">
+            <li>
+              <input
+                type="radio"
+                id="teacher"
+                name="role"
+                value="teacher"
+                required
+              />
+              <label htmlFor="teacher">معلم</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                id="student"
+                name="role"
+                value="student"
+                required
+              />
+              <label htmlFor="student">طالب</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                id="manager"
+                name="role"
+                value="manager"
+                required
+              />
+              <label htmlFor="manager">مدير</label>
+            </li>
+          </ul>
           <button type="submit">تسجيل {loading && <Bars />}</button>
         </form>
       </div>
