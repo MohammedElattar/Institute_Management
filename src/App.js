@@ -1,28 +1,29 @@
+import { Route, Routes } from "react-router-dom";
+import RequireUser from "./Components/RequireUser";
 import { url } from "./config";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Students from "./Pages/Students";
+import Teachers from "./Pages/Teachers";
 
 function App() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const name = e.target[0].value;
-    const age = e.target[1].value;
-    const object = { age, name };
-
-    const xhr = new XMLHttpRequest();
-
-    xhr.open("POST", `${url}app/controllers/user.php?method=add`);
-    xhr.onload = () => {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText);
-      } else console.log("Not exists");
-    };
-    xhr.send(JSON.stringify(object));
-  };
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placholder="name" name="name" />
-      <input type="number" placholder="age" name="age" />
-      <button>Submit</button>
-    </form>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <RequireUser>
+              <Home />
+            </RequireUser>
+          }
+        >
+          <Route path="students" element={<Students />} />
+          <Route path="teachers" element={<Teachers />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
   );
 }
 

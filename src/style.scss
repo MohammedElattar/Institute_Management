@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif;
+}
+
+html {
+    direction: rtl;
+}
+
+.form-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d6f0ff;
+    .form-wrapper {
+        padding: 40px;
+        border-radius: 5px;
+        align-items: center;
+        h3 {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 350px;
+            input {
+                padding: 10px;
+                font-size: 18px;
+                background-color: rgb(0 0 0 / 5%);
+                border: 1px solid rgb(0 0 0 / 16%);
+                border-radius: 5px;
+                transition: .2s;
+                outline: none;
+                &:focus {
+                    border-color: rgb(20, 117, 207);
+                    background-color: #fff;
+                }
+            }
+            button {
+                color: #fff;
+                background-color: #4a7cdb;
+                padding: 10px;
+                font-size: 18px;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                transition: .2s;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                svg {
+                    width: 25px;
+                    height: 100%;
+                }
+                &:hover {
+                    background-color: #3366c4;
+                }
+            }
+        }
+    }
+}
+
+header {
+    height: 80px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    .logo {
+        width: 55px;
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+    }
+    h3 {
+        font-size: 30px;
+    }
+}
+
+main {
+    height: calc(100vh - 80px);
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    nav {
+        height: 100%;
+        background-color: #222;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 50px 30px;
+        a {
+            color: #fff;
+            font-size: 18px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            text-decoration: none;
+            padding: 10px;
+            &.active {
+                background-color: #fff;
+                color: #222;
+                border-radius: 10px;
+            }
+        }
+    }
+    .outlet {
+    }
+}
