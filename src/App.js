@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import logo from './logo.svg';
-import './App.css';
-=======
 import { url } from "./config";
 
->>>>>>> 03811a2a3b089d8b52de05fd9cc3df4e2837cd0c
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
