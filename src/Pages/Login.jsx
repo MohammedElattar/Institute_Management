@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { useGlobalContext } from "../context";
 import { Bars } from "react-loading-icons";
 import { useNavigate } from "react-router-dom";
+import { url } from "../config";
+import axios from "axios";
 
 const Login = () => {
   const { setUser } = useGlobalContext();
@@ -21,15 +23,21 @@ const Login = () => {
 
     console.log(email, password, role);
 
-    if (email && password) {
-      setUser({
-        role,
-        email,
-        password,
-        id: "KGjafkguAFKJgafs14",
-      });
-      navigate("/", { replace: true });
-    }
+    const object = {
+      role,
+      email,
+      password,
+    };
+
+    // axios.post(`${url}app/controllers/user.php?method=login`, object);
+    const request = new XMLHttpRequest();
+    request.open("POST", `${url}app/controllers/user.php?method=login`);
+    request.onreadystatechange = () => {
+      if (request.status === 200 && request.readyState === 4) {
+        console.log(request.responseText);
+      }
+    };
+    request.send(JSON.stringify(object));
   };
 
   return (
