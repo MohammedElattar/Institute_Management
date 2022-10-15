@@ -1,1 +1,1 @@
-const url = "http://mohamedattar/institute_management/"
+export const url = "http://localhost/Institute_Management/";
