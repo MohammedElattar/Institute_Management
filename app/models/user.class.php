@@ -7,7 +7,7 @@ class User
         $password = @trim(htmlentities($POST['password'])) or null;
         $role = @trim(htmlentities($POST['role'])) or null;
         $res = [];
-        $roles = ['student' => 'students', 'manager' => 'admin', 'teacher' => 'teachers'];
+        $roles = ['student' => 'students', 'manager' => 'manager', 'teacher' => 'teachers'];
         if (!$email) $res['empty-email'] = '1';
         else if (filter_var($email, FILTER_VALIDATE_EMAIL)) $res['not-valid-email'] = '1';
         else if (!$password) $res['empty-pass'] = '1';
