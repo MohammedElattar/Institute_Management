@@ -30,7 +30,8 @@ const Login = () => {
     request.onreadystatechange = () => {
       if (request.status === 200 && request.readyState === 4) {
         console.log(request.responseText);
-        console.log(request);
+        const res = JSON.parse(request.responseText);
+        console.log(res);
       }
     };
     request.send(JSON.stringify(object));
