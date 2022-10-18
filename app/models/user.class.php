@@ -9,12 +9,12 @@ class User
         $res = [];
         $roles = ['student' => 'students', 'manager' => 'manager', 'teacher' => 'teachers'];
         if (!$email) $res['empty-email'] = '1';
-        else if (filter_var($email, FILTER_VALIDATE_EMAIL)) $res['not-valid-email'] = '1';
+        else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $res['not-valid-email'] = '1';
         else if (!$password) $res['empty-pass'] = '1';
         else if (!in_array($role, ['student', 'manager', 'teacher'])) $res['role-not-exists'] = '1';
         else {
             $db = DB::get_instance();
-            $user = $db->read("SELECT id FROM $roles[$role] WHERE email=? AND password=?", [$email, sha1($password), true]);
+            $user = $db->read("SELECT id FROM {$roles[$role]} WHERE email=? AND password=?", [$email, sha1($password)], true);
             if (!$user[1]) $res['user-not-exists'] = '1';
             else {
                 $user = $user[0][0];

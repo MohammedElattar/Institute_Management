@@ -21,11 +21,11 @@ class Controller
          *
          * @return string Returns The File Name of desired model
          */
-
-        if (file_exists("../app/models/" . strtolower($model_name) . ".class.php")) {
-            include "../app/models/" . strtolower($model_name) . ".class.php";
+        if (file_exists(__DIR__ . "/../models/" . strtolower($model_name) . ".class.php")) {
+            include __DIR__ . "/../models/" . strtolower($model_name) . ".class.php";
             return new $model_name();
-        }
+        } else return "not Found";
+        require_once __DIR__ . '/../models/user.class.php';
     }
 
     public function isPost()

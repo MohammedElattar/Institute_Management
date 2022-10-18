@@ -21,7 +21,7 @@ const Login = () => {
       (e) => e.checked
     )?.value;
 
-    console.log(email, password, role);
+    // console.log(email, password, role);
 
     const object = {
       role,
@@ -34,8 +34,8 @@ const Login = () => {
     request.open("POST", `${url}app/controllers/user.php?method=login`);
     request.onreadystatechange = () => {
       if (request.status === 200 && request.readyState === 4) {
-        console.log(request.responseText);
-        console.log(request);
+        const res = JSON.parse(request.responseText);
+        console.log(res)
       }
     };
     request.send(JSON.stringify(object));
