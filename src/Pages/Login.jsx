@@ -34,6 +34,7 @@ const Login = () => {
     request.open("POST", `${url}app/controllers/user.php?method=login`);
     request.onreadystatechange = () => {
       if (request.status === 200 && request.readyState === 4) {
+        console.log(request.responseText);
         const res = JSON.parse(request.responseText);
         console.log(res)
       }
