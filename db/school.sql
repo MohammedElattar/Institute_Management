@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2022 at 12:09 AM
+-- Generation Time: Oct 18, 2022 at 08:24 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` tinyint(4) NOT NULL,
-  `username` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
 (1, 'admin', '3344c70c901c0cee0461246b722021f126a2fd7d');
 
 -- --------------------------------------------------------
@@ -51,6 +51,14 @@ CREATE TABLE `manager` (
   `email` varchar(50) NOT NULL,
   `password` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`id`, `email`, `password`) VALUES
+(1, 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997'),
+(2, 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997');
 
 -- --------------------------------------------------------
 
@@ -118,7 +126,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `manager`
 --
 ALTER TABLE `manager`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `students`
