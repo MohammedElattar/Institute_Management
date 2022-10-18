@@ -1,6 +1,5 @@
 import React from "react";
 import { FaChalkboardTeacher, FaUsers } from "react-icons/fa";
-import { ImBooks } from "react-icons/im";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
@@ -33,7 +32,7 @@ const Dashboard = () => {
             </div>
             <div className="info">
               <h3>5</h3>
-              <p>الطلاب</p>
+              <p>الصفوف والمواد الدراسية</p>
             </div>
           </div>
         </div>
