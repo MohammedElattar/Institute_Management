@@ -19,15 +19,23 @@ class User
             else {
                 $user = $user[0][0];
                 $_SESSION['logged'] = '1';
-                $_SESSION['data']['id'] = $user['id'];
-                $_SESSION['data']['email'] = $email;
-                $_SESSION['data']['role'] = $role;
+                $res['data'] = [];
+                $res['data']['user']['id'] = $user['id'];
+                $res['data']['user']['email'] = $email;
+                if ($role == 'manager') {
+                    // gettings teachers information
+
+                    $teachers = $db->read("SELECT teachers.id , teachers.name , total_salary , taken_salary ,teachers.subject, subjects.name as subject_name , subjects.cost as subject_cost FROM teachers JOIN subjects ON subjects.id= teachers.subject", [], true);
+                    $res['data']['teachers']['cnt'] = $teachers[1];
+                    $res['data']['teachers']['data'] = $teachers[0];
+
+                    $students = $db->read("SELECT id , name , email FROM students", [], true);
+                    $res['data']['students']['cnt'] = $students[1];
+                    $res['data']['students']['data'] = $students[0];
+                }
                 $res['success'] = '1';
             }
         }
         return $res;
-    }
-    public function signup()
-    {
     }
 }
