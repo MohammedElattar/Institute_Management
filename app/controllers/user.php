@@ -21,5 +21,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $method = @$_GET['method'] or null;
     if ($method == 'login') {
         echo json_encode($user->login($_POST));
-    }
+    } else echo "Method not found";
 } else header("location:/");

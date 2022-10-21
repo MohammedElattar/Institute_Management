@@ -24,8 +24,7 @@ class Controller
         if (file_exists(__DIR__ . "/../models/" . strtolower($model_name) . ".class.php")) {
             include __DIR__ . "/../models/" . strtolower($model_name) . ".class.php";
             return new $model_name();
-        } else return "not Found";
-        require_once __DIR__ . '/../models/user.class.php';
+        } else return "Model not found";
     }
 
     public function isPost()
