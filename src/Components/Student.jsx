@@ -35,6 +35,7 @@ function Student({
           ))}
         </ul>
       </td>
+      <td>1250</td>
       <td>
         <button>add</button>
         <button>add</button>

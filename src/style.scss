@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap");
-
+$main: #4a7cdb;
+$main-light: #3366c4;
 * {
   box-sizing: border-box;
   margin: 0;
@@ -60,7 +61,7 @@ html {
       }
       button {
         color: #fff;
-        background-color: #4a7cdb;
+        background-color: $main;
         padding: 10px;
         font-size: 18px;
         border-radius: 5px;
@@ -78,7 +79,7 @@ html {
           height: 100%;
         }
         &:hover {
-          background-color: #3366c4;
+          background-color: $main-light;
         }
       }
     }
@@ -110,7 +111,7 @@ header {
 main {
   height: calc(100vh - 80px);
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 5fr;
   nav {
     height: 100%;
     background-color: #222;
@@ -216,13 +217,14 @@ main {
 
 .main-btn {
   color: #fff;
-  background-color: #4a7cdb;
+  background-color: $main;
   border: none;
   outline: none;
   transition: 0.2s;
   font-size: 18px;
   padding: 5px 15px;
   border-radius: 5px;
+  cursor: pointer;
   text-decoration: none;
   &:hover {
     background-color: #3366c4;
@@ -272,8 +274,6 @@ main {
           &:nth-child(odd) {
             background-color: rgb(228, 228, 228);
           }
-          &:nth-child(even) {
-          }
           td {
             text-align: center;
             position: relative;
@@ -289,7 +289,8 @@ main {
               background-color: #fff;
               border-radius: 5px;
               padding: 10px;
-              width: 200px;
+              width: 100%;
+              left: 0;
               top: 100%;
               display: none;
               box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -305,6 +306,62 @@ main {
           }
         }
       }
+    }
+  }
+}
+
+.student-form-container {
+  h3 {
+    color: $main;
+    font-size: 25px;
+    padding: 20px;
+  }
+  form {
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 20px;
+    padding: 0 50px;
+    .input {
+      width: 50%;
+      padding: 10px;
+      display: inline-block;
+      label {
+        display: block;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input {
+        width: 100%;
+        padding: 7px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      select {
+        font-size: 20px;
+        width: 100px;
+        cursor: pointer;
+      }
+    }
+    .wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 50%;
+      padding: 10px;
+      .input {
+        padding: 0;
+        label {
+          display: inline-block;
+          margin: 0;
+          margin-left: 10px;
+        }
+      }
+    }
+    .main-btn {
+      display: block;
+      margin-top: 20px;
+      width: 150px;
     }
   }
 }
